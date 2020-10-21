@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Technical Documentation Page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>Here goes the nav header</header>
+      <ul>
+        <li>
+          <a class="nav-link" href="#Creating_a_project">Creating a project</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#The_development_server"
+            >The development server</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Creating_the_Polls_app"
+            >Creating the Polls app</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Write_your_first_view"
+            >Write your first view</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Review_of_some_arguments"
+            >Review of some arguments</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <h1>Writing your first Django app</h1>
+      <section class="main-section" id="Creating_a_project">
+        <header><h2>Creating a project</h2></header>
+
+        <p>
+          If this is your first time using Django, you’ll have to take care of
+          some initial setup. Namely, you’ll need to auto-generate some code
+          that establishes a Django project – a collection of settings for an
+          instance of Django, including database configuration, Django-specific
+          options and application-specific settings.
+        </p>
+
+        <p>
+          From the command line, <strong>cd</strong> into a directory where
+          you’d like to store your code, then run the following command:
+        </p>
+
+        <div class="shell"><code>$ django-admin startproject mysite</code></div>
+        <p>
+          This will create a <strong>mysite</strong> directory in your current
+          directory. If it didn’t work, see
+          <a
+            href="https://docs.djangoproject.com/en/3.1/faq/troubleshooting/#troubleshooting-django-admin"
+            target="_blank"
+            >Problems running django-admin</a
+          >.
+        </p>
+
+        <div class="note">
+          <div><ion-icon name="newspaper-outline"></ion-icon></div>
+          <div class="note-info">
+            <h3>Note</h3>
+            <p>
+              You’ll need to avoid naming projects after built-in Python or
+              Django components. In particular, this means you should avoid
+              using names like django (which will conflict with Django itself)
+              or test (which conflicts with a built-in Python package).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="main-section" id="The_development_server">
+        <header><h2>The development server</h2></header>
+      </section>
+
+      <section class="main-section" id="Creating_the_Polls_app">
+        <header><h2>Creating the Polls app</h2></header>
+      </section>
+
+      <section class="main-section" id="Write_your_first_view">
+        <header><h2>Write your first view</h2></header>
+      </section>
+
+      <section class="main-section" id="Review_of_some_arguments">
+        <header><h2>Review of some arguments</h2></header>
+      </section>
+    </main>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>

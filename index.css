@@ -1,0 +1,82 @@
+:root {
+  --gray: #e3e3e3;
+  --dark-gray: #ccc;
+  --green: #f2fff7;
+  --dark-green: #a3bbac;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--gray);
+  height: 100%;
+  padding: 20px;
+  min-width: 200px;
+}
+
+#navbar li {
+  list-style-type: none;
+}
+
+#main-doc {
+  margin-left: 300px;
+  margin-right: 50px;
+  text-align: justify;
+  padding: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.shell {
+  background-color: var(--gray);
+  padding: 15px 20px;
+  border: 2px solid var(--dark-gray);
+  border-radius: 5px;
+  max-height: 60px;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.note {
+  display: flex;
+  background-color: var(--green);
+  border: 2px solid var(--dark-green);
+  border-radius: 5px;
+  padding: 20px;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.note .note-info {
+  margin-left: 20px;
+}
+
+ion-icon[name='newspaper-outline'] {
+  font-size: 32px;
+  color: var(--dark-green);
+}
+
+@media (max-width: 460px) {
+  #navbar {
+    display: none;
+  }
+
+  #main-doc {
+    margin: 0;
+  }
+}
