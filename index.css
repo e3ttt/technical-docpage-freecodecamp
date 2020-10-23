@@ -15,6 +15,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+h2 {
+  margin-top: 20px;
+}
+
 #navbar {
   position: fixed;
   top: 0;
@@ -25,8 +29,13 @@ body {
   min-width: 200px;
 }
 
+#navbar a {
+  text-decoration: none;
+}
+
 #navbar li {
   list-style-type: none;
+  margin: 10px 0;
 }
 
 #main-doc {
@@ -34,6 +43,14 @@ body {
   margin-right: 50px;
   text-align: justify;
   padding: 20px;
+}
+
+#main-doc ul {
+  margin-left: 50px;
+}
+
+#main-doc ul li {
+  margin: 10px 0;
 }
 
 p {
@@ -46,7 +63,6 @@ p {
   padding: 15px 20px;
   border: 2px solid var(--dark-gray);
   border-radius: 5px;
-  max-height: 60px;
   white-space: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
@@ -60,6 +76,7 @@ p {
   padding: 20px;
   overflow-y: hidden;
   overflow-x: auto;
+  margin: 20px 0;
 }
 
 .note .note-info {
@@ -69,6 +86,44 @@ p {
 ion-icon[name='newspaper-outline'] {
   font-size: 32px;
   color: var(--dark-green);
+}
+
+.keyword {
+  --dark-green: #1a7000;
+  color: var(--dark-green);
+  font-weight: bold;
+}
+
+.import {
+  color: blue;
+  font-weight: bold;
+}
+
+.function {
+  color: blue;
+}
+
+.string {
+  color: green;
+}
+
+.file-path {
+  background-color: var(--dark-green);
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.python-code-container {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--dark-green);
+}
+
+.python-code {
+  --gray: #f2f2f2;
+  background-color: var(--gray);
+  padding: 10px;
 }
 
 @media (max-width: 460px) {

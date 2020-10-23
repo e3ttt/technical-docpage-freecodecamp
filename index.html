@@ -21,7 +21,7 @@
   </head>
   <body>
     <nav id="navbar">
-      <header>Here goes the nav header</header>
+      <header>Django documention</header>
       <ul>
         <li>
           <a class="nav-link" href="#Creating_a_project">Creating a project</a>
@@ -42,9 +42,7 @@
           >
         </li>
         <li>
-          <a class="nav-link" href="#Review_of_some_arguments"
-            >Review of some arguments</a
-          >
+          <a class="nav-link" href="#Remark">Remark</a>
         </li>
       </ul>
     </nav>
@@ -84,27 +82,246 @@
             <p>
               You’ll need to avoid naming projects after built-in Python or
               Django components. In particular, this means you should avoid
-              using names like django (which will conflict with Django itself)
-              or test (which conflicts with a built-in Python package).
+              using names like <strong>django</strong> (which will conflict with
+              Django itself) or <strong>test</strong> (which conflicts with a
+              built-in Python package).
             </p>
           </div>
         </div>
+
+        <div class="note">
+          <div><ion-icon name="newspaper-outline"></ion-icon></div>
+          <div class="note-info">
+            <h3>Where should this code live?</h3>
+            <p>
+              If your background is in plain old PHP (with no use of modern
+              frameworks), you’re probably used to putting code under the Web
+              server’s document root (in a place such as
+              <strong>/var/www</strong>). With Django, you don’t do that. It’s
+              not a good idea to put any of this Python code within your Web
+              server’s document root, because it risks the possibility that
+              people may be able to view your code over the Web. That’s not good
+              for security.
+            </p>
+
+            <p>
+              Put your code in some directory <strong>outside</strong> of the
+              document root, such as <strong>/home/mycode</strong>.
+            </p>
+          </div>
+        </div>
+
+        <p>Let’s look at what <strong>startproject</strong> created:</p>
+
+        <div class="shell">
+          <!-- prettier-ignore -->
+          <code>
+            <pre>
+mysite/
+    manage.py
+    mysite/
+        __init__.py
+        settings.py
+        urls.py
+        asgi.py
+        wsgi.py
+            </pre>
+          </code>
+        </div>
+
+        <p>These files are:</p>
+
+        <ul>
+          <li>
+            The outer <strong>mysite/</strong> root directory is a container for
+            your project. Its name doesn’t matter to Django; you can rename it
+            to anything you like.
+          </li>
+          <li>
+            <strong>manage.py</strong>: A command-line utility that lets you
+            interact with this Django project in various ways. You can read all
+            the details about <strong>manage.py</strong> in
+            <a href="#">django-admin</a> and <a href="#">manage.py</a>.
+          </li>
+          <li>
+            The inner <strong>mysite/</strong> directory is the actual Python
+            package for your project. Its name is the Python package name you’ll
+            need to use to import anything inside it (e.g.
+            <strong>mysite.urls</strong>).
+          </li>
+          <li>
+            <strong>mysite/__init__.py</strong>: An empty file that tells Python
+            that this directory should be considered a Python package. If you’re
+            a Python beginner, read <a href="#">more about packages</a> in the
+            official Python docs.
+          </li>
+          <li>
+            <strong>mysite/settings.py</strong>: Settings/configuration for this
+            Django project. <a href="#">Django settings</a> will tell you all
+            about how settings work.
+          </li>
+          <li>
+            <strong>mysite/urls.py</strong>: The URL declarations for this
+            Django project; a “table of contents” of your Django-powered site.
+            You can read more about URLs in <a href="#">URL dispatcher</a>.
+          </li>
+          <li>
+            <strong>mysite/asgi.py</strong>: An entry-point for ASGI-compatible
+            web servers to serve your project. See
+            <a href="#">How to deploy with ASGI</a> for more details.
+          </li>
+          <li>
+            <strong>mysite/wsgi.py</strong>: An entry-point for WSGI-compatible
+            web servers to serve your project. See
+            <a href="#">How to deploy with WSGI</a> for more details.
+          </li>
+        </ul>
       </section>
 
       <section class="main-section" id="The_development_server">
         <header><h2>The development server</h2></header>
+
+        <p>
+          Let’s verify your Django project works. Change into the outer mysite
+          directory, if you haven’t already, and run the following commands:
+        </p>
+
+        <div class="shell"><code>$ python manage.py runserver</code></div>
+
+        <p>You’ll see the following output on the command line:</p>
+
+        <div class="shell">
+          <code>
+            <!-- prettier-ignore -->
+            <pre>
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+
+October 22, 2020 - 15:50:53
+Django version 3.1, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+          </pre>
+          </code>
+        </div>
+
+        <div class="note">
+          <div><ion-icon name="newspaper-outline"></ion-icon></div>
+          <div class="note-info">
+            <h3>Note</h3>
+            <p>
+              Ignore the warning about unapplied database migrations for now;
+              we’ll deal with the database shortly.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          You’ve started the Django development server, a lightweight Web server
+          written purely in Python. We’ve included this with Django so you can
+          develop things rapidly, without having to deal with configuring a
+          production server – such as Apache – until you’re ready for
+          production.
+        </p>
+        <p>
+          Now’s a good time to note: <strong>don’t</strong> use this server in
+          anything resembling a production environment. It’s intended only for
+          use while developing. (We’re in the business of making Web frameworks,
+          not Web servers.)
+        </p>
+
+        <p>
+          Now that the server’s running, visit
+          <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> with your
+          Web browser. You’ll see a “Congratulations!” page, with a rocket
+          taking off. It worked!
+        </p>
       </section>
 
       <section class="main-section" id="Creating_the_Polls_app">
         <header><h2>Creating the Polls app</h2></header>
+
+        <p>
+          Now that your environment – a “project” – is set up, you’re set to
+          start doing work.
+        </p>
+
+        <p>
+          Each application you write in Django consists of a Python package that
+          follows a certain convention. Django comes with a utility that
+          automatically generates the basic directory structure of an app, so
+          you can focus on writing code rather than creating directories.
+        </p>
+
+        <div class="note">
+          <div><ion-icon name="newspaper-outline"></ion-icon></div>
+          <div class="note-info">
+            <h3>Projects vs. apps</h3>
+            <p>
+              What’s the difference between a project and an app? An app is a
+              Web application that does something – e.g., a Weblog system, a
+              database of public records or a small poll app. A project is a
+              collection of configuration and apps for a particular website. A
+              project can contain multiple apps. An app can be in multiple
+              projects.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          Your apps can live anywhere on your <a href="#">Python path</a>. In
+          this tutorial, we’ll create our poll app in the same directory as your
+          manage.py file so that it can be imported as its own top-level module,
+          rather than a submodule of mysite.
+        </p>
+
+        <p>
+          To create your app, make sure you’re in the same directory as
+          <strong>manage.py</strong> and type this command:
+        </p>
+
+        <div class="shell"><code>$ python manage.py startapp polls</code></div>
       </section>
 
       <section class="main-section" id="Write_your_first_view">
         <header><h2>Write your first view</h2></header>
+
+        <p>
+          Let’s write the first view. Open the file
+          <strong>polls/views.py</strong> and put the following Python code in
+          it:
+        </p>
+
+        <div class="python-code-container">
+          <div class="file-path">polls/views.py</div>
+          <div class="python-code">
+            <code>
+              <pre>
+<!-- prettier-ignore -->
+<span class="keyword">from</span> <span class="import">django.http</span> <span class="keyword">import</span> HttpResponse
+
+
+<span class="keyword">def</span> <span class="function">index</span>(request):
+    <span class="keyword">return</span> HttpResponse(<span class="string">"Hello, world. You're at the polls index."</span>)
+              </pre>
+            </code>
+          </div>
+        </div>
       </section>
 
-      <section class="main-section" id="Review_of_some_arguments">
-        <header><h2>Review of some arguments</h2></header>
+      <section class="main-section" id="Remark">
+        <header><h2>Remark</h2></header>
+
+        <p>
+          All the texts from this page was taken from the
+          <a href="https://docs.djangoproject.com/en/3.1/intro/tutorial01/"
+            >official documentation of django</a
+          >.
+        </p>
       </section>
     </main>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
